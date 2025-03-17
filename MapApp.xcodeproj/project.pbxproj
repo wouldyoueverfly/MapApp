@@ -16,6 +16,11 @@
 			path = MapApp;
 			sourceTree = "<group>";
 		};
+		EEBA38152D879E8400445DCE /* DataServices */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DataServices;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			children = (
 				EEBA37FE2D877EE100445DCE /* MapApp */,
 				EEBA37FD2D877EE100445DCE /* Products */,
+				EEBA38152D879E8400445DCE /* DataServices */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +68,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				EEBA37FE2D877EE100445DCE /* MapApp */,
+				EEBA38152D879E8400445DCE /* DataServices */,
 			);
 			name = MapApp;
 			packageProductDependencies = (
