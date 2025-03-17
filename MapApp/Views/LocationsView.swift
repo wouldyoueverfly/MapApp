@@ -22,6 +22,20 @@ struct LocationsView: View {
                     .padding()
                 
                 Spacer()
+                
+                ZStack {
+                    ForEach(vm.locations) { location in
+                        if vm.mapLocation == location {
+                            LocationPreviewView(location: location)
+                                .shadow(color: .black.opacity(0.3), radius: 20)
+                                .padding()
+                                .transition(.asymmetric(
+                                    insertion: .move(edge: .trailing),
+                                    removal: .move(edge: .leading)))
+                        }
+                        
+                    }
+                }
             }
         }
     }
@@ -55,6 +69,8 @@ extension LocationsView {
                             .rotationEffect(Angle(degrees: vm.showLocationsList ? 180 : 0))
                     }
             }
+            // in case we dont need red button font
+            .foregroundStyle(.primary)
             
             if vm.showLocationsList {
                 LocationsListView()
