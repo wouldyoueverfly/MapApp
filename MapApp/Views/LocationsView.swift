@@ -23,6 +23,11 @@ struct LocationsView: View {
                 locationsPreviewStack
             }
         }
+        .sheet(
+            item: $vm.sheetLocation,
+            onDismiss: nil) { location in
+                LocationDetailView(location: location)
+            }
     }
 }
 
@@ -42,7 +47,6 @@ extension LocationsView {
                 Text("\(vm.mapLocation.name), \(vm.mapLocation.cityName)")
                     .font(.title2)
                     .fontWeight(.black)
-                    .foregroundStyle(.primary)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
                     .animation(.none, value: vm.mapLocation)
@@ -54,7 +58,6 @@ extension LocationsView {
                             .rotationEffect(Angle(degrees: vm.showLocationsList ? 180 : 0))
                     }
             }
-            // in case we dont need red button font
             .foregroundStyle(.primary)
             
             if vm.showLocationsList {
