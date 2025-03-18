@@ -12,6 +12,7 @@ struct LocationsView: View {
     
     @EnvironmentObject private var vm: LocationsViewModel
     let maxWidthForIpad: CGFloat = 700
+    
     var body: some View {
         ZStack {
             mapLayer
@@ -78,6 +79,7 @@ extension LocationsView {
             annotationContent: { location in
                 MapAnnotation(coordinate: location.coordinates) {
                     LocationMapAnnotationView()
+                    // MARK: FIX SCALE EFFECT
                         .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
                         .shadow(radius: 10)
                         .onTapGesture {
