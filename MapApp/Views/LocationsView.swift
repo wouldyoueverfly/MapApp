@@ -73,21 +73,19 @@ extension LocationsView {
     }
     
     private var mapLayer: some View {
-        Map(
-            coordinateRegion: $vm.mapRegion,
-            annotationItems: vm.locations,
-            annotationContent: { location in
-                MapAnnotation(coordinate: location.coordinates) {
+        
+        Map(position: .constant(.region(vm.mapRegion))) {
+            ForEach(vm.locations) { location in
+                Annotation(location.name, coordinate: location.coordinates) {
                     LocationMapAnnotationView()
-                    // MARK: FIX SCALE EFFECT
                         .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
                         .shadow(radius: 10)
                         .onTapGesture {
                             vm.showNextLocation(location: location)
                         }
-                    
                 }
-            })
+            }
+        }
         
     }
     
