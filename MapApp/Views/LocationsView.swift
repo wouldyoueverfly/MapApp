@@ -12,6 +12,7 @@ struct LocationsView: View {
     
     @EnvironmentObject private var vm: LocationsViewModel
     let maxWidthForIpad: CGFloat = 700
+    // @State private var isBig: Bool = false
     
     var body: some View {
         ZStack {
@@ -83,6 +84,7 @@ extension LocationsView {
                         .onTapGesture {
                             vm.showNextLocation(location: location)
                         }
+                        .animation(.default, value: vm.mapLocation)
                 }
             }
         }
